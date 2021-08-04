@@ -2,7 +2,5 @@
 
 企业级前端解决方案
 
-
-Angular
-
-Bootstrap
+## 架构
+Angular、Bootstrap、redux

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BusinessUrl } from 'src/business/constant/url-constant';
 
 /**
  * AAA01X01Component
@@ -12,9 +14,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './AAA01X01.component.html',
 })
 export class AAA01X01Component implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   public ngOnInit(): void {
     console.log('successful!');
+  }
+
+  public confirm(): void {
+    this.router.navigate([BusinessUrl.AAA01X02]);
   }
 }

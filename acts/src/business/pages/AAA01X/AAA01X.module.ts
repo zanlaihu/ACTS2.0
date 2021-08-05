@@ -1,4 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/shared/shared.module';
 import { AAA01X01Component } from './AAA01X01/AAA01X01.componet';
@@ -34,6 +35,7 @@ import { AAA01X03Component } from './AAA01X03/AAA01X03.componet';
         component: AAA01X03Component,
       },
     ]),
+    FormsModule,
   ],
   declarations: [AAA01X01Component, AAA01X02Component, AAA01X03Component],
 })

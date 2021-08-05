@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BusinessUrl } from 'src/business/constant/url-constant';
+import { MemberInfoQuery } from 'src/business/queries/member.query';
+import { MemberInfo } from 'src/business/states/member-info.model';
 
 /**
  * AAA01X02Component
@@ -14,7 +16,15 @@ import { BusinessUrl } from 'src/business/constant/url-constant';
   templateUrl: './AAA01X02.component.html',
 })
 export class AAA01X02Component implements OnInit {
-  constructor(private router: Router) {}
+  private memberInfo!: MemberInfo;
+
+  public webId: string = '';
+  public pwd: string = '';
+
+  constructor(
+    private router: Router,
+    private memberInfoQuery: MemberInfoQuery
+  ) {}
 
   /**
    * Angular life-cycle
@@ -22,7 +32,21 @@ export class AAA01X02Component implements OnInit {
    * @memberof AAA01X02Component
    */
   public ngOnInit(): void {
-    console.log('successful!');
+    this.getMemberInfoStore();
+  }
+
+  /**
+   * 获取memberInfoStore的值
+   *
+   * @private
+   * @memberof AAA01X02Component
+   */
+  private getMemberInfoStore(): void {
+    this.memberInfo = this.memberInfoQuery.getValue();
+    if (this.memberInfo) {
+      this.webId = this.memberInfo.webId;
+      this.pwd = this.memberInfo.pwd;
+    }
   }
 
   /**
